@@ -14,12 +14,6 @@ let createdStarted;
 let createdEnded;
 
 const getDatas = (page) => {
-  console.log(title);
-  console.log(content);
-  console.log(userId);
-  console.log(createdStarted);
-  console.log(createdEnded);
-
   var settings = {
     url: 'http://localhost:8080/api/admin/posts',
     method: 'GET',
