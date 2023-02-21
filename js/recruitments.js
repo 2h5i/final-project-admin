@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // 페이징 버튼
 $('.post-data-area').on('click', 'a', function (e) {
   page = parseInt($(this).data('page'));
-  getDatas(0);
+  getDatas(page-1);
   return false;
 });
 
@@ -91,10 +91,11 @@ function board_list(data) {
   var str = '';
   data.forEach((recruitment) => {
     str += `<tr>`;
-    str += `<td onclick="location.href='/recruitment-detail.html?id=${recruitment.id}'">${recruitment.title}</td>`;
-    str += `<td onclick="location.href='/recruitment-detail.html?id=${recruitment.id}'">${recruitment.subTitle}</td>`;
-    str += `<td onclick="location.href='/recruitment-detail.html?id=${recruitment.id}'">${recruitment.createdAt}</td>`;
-    str += `<td><button onclick="removeData(${recruitment.id})">삭제</button></td>`;
+    str += `<td>${recruitment.title}</td>`;
+    str += `<td>${recruitment.subTitle}</td>`;
+    str += `<td>${recruitment.createdAt}</td>`;
+    str += `<td><button style="background-color: #ffffff6b; font-weight: bold" onclick="location.href='/recruitment-detail.html?id=${recruitment.id}'">상세보기</button></td>`;
+    str += `<td><button style="background-color: #ff2400; font-weight: bold" onclick="removeData(${recruitment.id})">삭제</button></td>`;
     str += '</tr>';
   });
 
