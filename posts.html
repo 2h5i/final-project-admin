@@ -18,6 +18,31 @@
 
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <script>
+        const parseJwt = (token) => {
+            try {
+                return JSON.parse(atob(token.split('.')[1]));
+            } catch (e) {
+                return null;
+            }
+        };
+
+        try {
+            const user = parseJwt(window.localStorage.getItem('accesstoken').split('Bearer ')[1]);
+            const userRole = user.auth;
+
+            if (
+                window.localStorage.getItem('accesstoken') === null ||
+                userRole !== 'ADMIN'
+            ) {
+                alert('접근 권한이 없습니다.');
+                window.location.href = '/login.html';
+            }
+        } catch (e) {
+            alert('접근 권한이 없습니다.');
+            window.location.href = '/login.html';
+        }
+    </script>
 </head>
 
 <body class="sb-nav-fixed">
@@ -150,6 +175,7 @@
                                         <th>회원 ID</th>
                                         <th>제목</th>
                                         <th>작성일</th>
+                                        <th>상세보기</th>
                                     </tr>
                                 </thead>
                                 <tbody id="posts-tbody">
