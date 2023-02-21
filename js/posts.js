@@ -28,8 +28,7 @@ const getDatas = (page) => {
       createdEnded,
     },
     headers: {
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYWFhIiwiYXV0aCI6IkFETUlOIiwiZXhwIjoxNjc2OTY3NDQ3LCJpYXQiOjE2NzY5NjM4NDd9.GOcGLFeV4weUqLEo7fxoMXSb85mzbKTJ3EXZM_SHq3k',
+      Authorization: window.localStorage.getItem('accesstoken'),
       'Content-Type': 'application/json',
     },
   };
@@ -145,11 +144,12 @@ function board_list(data) {
     str += '</tr>';
   } else {
     data.forEach((post) => {
-      str += `<tr onclick="location.href='/post-detail.html?id=${post.id}'">`;
+      str += `<tr>`;
       str += `<td>${post.id}</td>`;
       str += `<td>${post.userInfo.userId}</td>`;
       str += `<td>${post.title}</td>`;
       str += `<td>${post.createdAt}</td>`;
+      str += `<td><button style="background-color:skyblue" onclick="location.href='/post-detail.html?id=${post.id}'">상세 보기</button></td>`;
       str += '</tr>';
     });
   }
