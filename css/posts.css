@@ -13,6 +13,11 @@
 .search-input {
   width: 70%;
 }
+
+#start-end {
+  width: 50%;
+}
+
 /* 페이징 */
 #pagination-buttons {
   margin: 0 auto;

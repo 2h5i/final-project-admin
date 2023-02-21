@@ -35,7 +35,7 @@ const getDatas = (page) => {
     },
     headers: {
       Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYWFhIiwiYXV0aCI6IkFETUlOIiwiZXhwIjoxNjc2OTYzNzcwLCJpYXQiOjE2NzY5NjAxNzB9.-qnwgpsQtaZTPrF6zk1GhoVk4gNqBC46wivBStU4r30',
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYWFhIiwiYXV0aCI6IkFETUlOIiwiZXhwIjoxNjc2OTY3NDQ3LCJpYXQiOjE2NzY5NjM4NDd9.GOcGLFeV4weUqLEo7fxoMXSb85mzbKTJ3EXZM_SHq3k',
       'Content-Type': 'application/json',
     },
   };
@@ -51,13 +51,26 @@ const getDatas = (page) => {
 };
 
 $(function () {
-  $('input[name="start-end"]').daterangepicker(
-    {
-      opens: 'left',
-    },
-    (start, end) => {
-      createdStarted = start;
-      createdEnded = end;
+  $('input[name="start-end"]').daterangepicker({
+    opens: 'left',
+    autoUpdateInput: false,
+  });
+
+  $('input[name="start-end"]').on(
+    'apply.daterangepicker',
+    function (ev, picker) {
+      $(this).val(
+        picker.startDate.format('MM/DD/YYYY') +
+          ' - ' +
+          picker.endDate.format('MM/DD/YYYY')
+      );
+    }
+  );
+
+  $('input[name="start-end"]').on(
+    'cancel.daterangepicker',
+    function (ev, picker) {
+      $(this).val('');
     }
   );
 });
