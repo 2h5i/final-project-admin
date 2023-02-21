@@ -1,0 +1,18 @@
+.post-detail-area {
+  padding: 10px;
+}
+
+#post-detail-title {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+#post-detail-user-id {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.remove-area button {
+  margin: 0 auto;
+  display: block;
+}
