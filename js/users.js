@@ -118,7 +118,7 @@ function board_list(data) {
       str += `<td>${user.userId}</td>`;
       str += `<td>${user.kakaoId ? user.kakaoId : '-'}</td>`;
       str += `<td>${user.email}</td>`;
-      str += `<td>${user.createdAt}</td>`;
+      str += `<td>${user.createdAt}</td>`.slice(0,14);
       str += `<td><button style="background-color:red; color: white" onclick="removeUser(${user.id})">상세 보기</button></td>`;
       str += '</tr>';
     });
