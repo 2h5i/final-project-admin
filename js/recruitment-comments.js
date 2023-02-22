@@ -98,7 +98,7 @@ function board_list(data) {
     str += `<td>${recruitment.user.userId}</td>`;
     str += `<td>${recruitment.content}</td>`;
     str += `<td>${recruitment.createdAt}</td>`;
-    str += `<td><button style="background-color: #ff2400; font-weight: bold" onclick="removeData(${recruitment.id})">삭제</button></td>`;
+    str += `<td><button style="background-color: #ff2400; font-weight: bold" onclick="removeData(${recruitment.recruitmentCommentId})">삭제</button></td>`;
     str += '</tr>';
   });
 
