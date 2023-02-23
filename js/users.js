@@ -119,7 +119,7 @@ function board_list(data) {
       str += `<td>${user.kakaoId ? user.kakaoId : '-'}</td>`;
       str += `<td>${user.email}</td>`;
       str += `<td>${user.createdAt}</td>`.slice(0,14);
-      str += `<td><button style="background-color:red; color: white" onclick="removeUser(${user.id})">상세 보기</button></td>`;
+      str += `<td><button style="background-color:red; color: white" onclick="removeUser(${user.id})">회원 탈퇴</button></td>`;
       str += '</tr>';
     });
   }
@@ -137,5 +137,19 @@ const searchUser = () => {
 };
 
 const removeUser = (id) => {
-  console.log(id);
+  const deleteUserSettings = {
+    url: `http://localhost:8080/api/admin/users/`+id,
+    method: 'DELETE',
+    timeout: 0,
+    headers: {
+        Authorization:
+        window.localStorage.getItem('accesstoken'),
+        'Content-Type': 'application/json',
+      },
+  };
+
+  $.ajax(deletePostSettings).done(function () {
+    alert('유저 정보를 삭제하였습니다.');
+    window.location.reload();
+  });
 };
