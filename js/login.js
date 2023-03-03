@@ -1,6 +1,6 @@
 function loginUser(){
     var settings = {
-      url: 'http://localhost:8080/api/auth/login',
+      url: 'http://3.37.11.74:8080/api/auth/login',
       method: 'POST',
       timeout: 0,
       "headers": {
