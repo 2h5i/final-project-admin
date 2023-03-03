@@ -12,7 +12,7 @@ let content = document.getElementById('content').value;
 
 const getDatas = (page) => {
     var settings = {
-        url: 'http://localhost:8080/api/admin/recruitment-comments',
+        url: 'http://3.37.11.74:8080/api/admin/recruitment-comments',
         method: 'GET',
         timeout: 0,
         data: {
@@ -110,7 +110,7 @@ function board_list(data) {
 
 function removeData(id){
     const deletePostSettings = {
-        url: `http://localhost:8080/api/admin/recruitment-comments/`+id,
+        url: `http://3.37.11.74:8080/api/admin/recruitment-comments/`+id,
         method: 'DELETE',
         timeout: 0,
         headers: {

@@ -12,7 +12,7 @@ let email = document.getElementById('email').value;
 
 const getDatas = (page) => {
   var settings = {
-    url: 'http://localhost:8080/api/admin/users',
+    url: 'http://3.37.11.74:8080/api/admin/users',
     method: 'GET',
     timeout: 0,
     data: {
@@ -138,7 +138,7 @@ const searchUser = () => {
 
 const removeUser = (id) => {
   const deleteUserSettings = {
-    url: `http://localhost:8080/api/admin/users/`+id,
+    url: `http://3.37.11.74:8080/api/admin/users/`+id,
     method: 'DELETE',
     timeout: 0,
     headers: {

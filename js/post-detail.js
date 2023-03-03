@@ -2,7 +2,7 @@ const postId = window.location.href.split('?id=')[1];
 
 document.addEventListener('DOMContentLoaded', function () {
   var settings = {
-    url: `http://localhost:8080/api/admin/posts/${postId}`,
+    url: `http://3.37.11.74:8080/api/admin/posts/${postId}`,
     method: 'GET',
     timeout: 0,
     headers: {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const removePost = () => {
   var settings = {
-    url: `http://localhost:8080/api/admin/posts/${postId}`,
+    url: `http://3.37.11.74:8080/api/admin/posts/${postId}`,
     method: 'DELETE',
     timeout: 0,
     headers: {
